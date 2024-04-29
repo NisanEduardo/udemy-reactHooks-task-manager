@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { TaskModel } from "../models/task.model";
+import { TaskStatusModal } from "../components/TaskStatusModal";
 
 export const CreateTask = () => {
   const [task, setTask] = useState("");
@@ -13,11 +14,6 @@ export const CreateTask = () => {
 
     const tasksDB = localStorage["tasks"];
     const tasks = tasksDB ? JSON.parse(tasksDB) : [];
-
-    console.log("entrou aquiasd", {
-      tasksDB,
-      tasks,
-    });
 
     // persistir tarefa
     tasks.push(taskModel.create(new Date().getTime(), task, false));
@@ -52,6 +48,7 @@ export const CreateTask = () => {
           <button type="submit">Cadastrar</button>
         </form>
       </section>
+      <TaskStatusModal showModal={showModal} />
     </div>
   );
 };
