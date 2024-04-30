@@ -8,6 +8,7 @@ import reportWebVitals from "./reportWebVitals";
 import "./main.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { UpdateTask } from "./update-task/UpdateTask";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "list",
     element: <ListTasks />,
+  },
+  {
+    path: "update/:taskId",
+    element: <UpdateTask />,
   },
 ]);
 
