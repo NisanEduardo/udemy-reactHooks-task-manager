@@ -6,17 +6,20 @@ type TaskProps = {
   completed: boolean,
 };
 
-type State = {
+type StateProps = {
   tasks: Array<TaskProps>,
 };
 
-type Action = {
+type ActionProps = {
   add: (task: TaskProps) => void
 };
 
-const useTasksStore = create<State & Action>((set) => ({
+export const useTasksStore = create<StateProps & ActionProps>((set) => ({
   tasks: [],
-  add: (task: TaskProps) => set((state: TaskProps[]) => ([
-    task
-  ]))
-}))
+  add: (task: TaskProps) => set((state) => (
+    {
+      ...state,
+      task
+    }
+  )),
+}));
