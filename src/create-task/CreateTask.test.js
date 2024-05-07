@@ -2,8 +2,6 @@ import { fireEvent, render } from "@testing-library/react";
 
 import { unmountComponentAtNode } from "react-dom";
 import { CreateTask } from "./CreateTask";
-import { TaskStatusModal } from "../components/TaskStatusModal";
-import { Container } from "postcss";
 
 describe("list tasks component tests", () => {
   it("should render component without errors", () => {

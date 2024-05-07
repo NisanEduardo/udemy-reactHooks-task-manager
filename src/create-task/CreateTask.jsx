@@ -16,7 +16,7 @@ export const CreateTask = () => {
     const tasks = tasksDB ? JSON.parse(tasksDB) : [];
 
     // persistir tarefa
-    tasks.push(taskModel.create(new Date().getTime(), task, false));
+    tasks.push(taskModel.create(new Date().getTime(), task, true));
     localStorage["tasks"] = JSON.stringify(tasks);
     setShowModal(true);
   }

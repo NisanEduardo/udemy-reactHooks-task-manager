@@ -4,6 +4,7 @@ import { ListTasksItems } from "./ListTasksItems";
 
 export const ListTasks = () => {
   const tasksDB = localStorage["tasks"];
+  const parsedTasksDB = tasksDB ? JSON.parse(tasksDB) : [];
 
   return (
     <div className="text-center">
@@ -25,7 +26,7 @@ export const ListTasks = () => {
           </tr>
         </thead>
         <tbody>
-          <ListTasksItems tasks={JSON.parse(tasksDB)} />
+          <ListTasksItems tasks={parsedTasksDB} />
         </tbody>
       </table>
     </div>
