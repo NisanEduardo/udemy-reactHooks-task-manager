@@ -10,22 +10,24 @@ export const ListTasksItems = (props) => {
   }
 
   return props.tasks.map((task) => (
-    <tr key={task.id} className="teste">
+    <tr key={task.id} className="odd:bg-gray-200 even:bg-slate-100">
       <td
-        data-testId="taskName"
+        data-testid="taskName"
         className={`${checkAsCompleted(task)}`}
         width="75%"
       >
         {task.name}
       </td>
-      <td className="text-right">
+      <td className="text-right p-5">
         <CompleteTask
           task={task}
-          className={task.completed ? "hidden" : "flex"}
+          className={task.completed ? "hidden" : "inline-block mr-3"}
         />
 
         <a
-          className={task.completed ? "hidden" : "bg-red-500"}
+          className={`${
+            task.completed ? "hidden" : "inline-block"
+          } text-center`}
           href={`/update/${task.id}`}
         >
           <FontAwesomeIcon icon={faEdit} />
